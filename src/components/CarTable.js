@@ -1,20 +1,19 @@
 import React from "react";
-import { useStore } from "../store";
+import store from "../store";
 
 import CarRow from "./CarRow";
 
 const CarTable = () => {
 
-    const data = useStore(state => state.data);
+    const data = store.data;
     
-    const filter = useStore(state => state.filter);
-    const selectedItem = useStore(state => state.selectedItem)
-    const setSelectedItem = useStore(state => state.setSelectedItem);
+    const filter = store.filter;
+    const selectedItem = store.selectedItem    
 
     const handleSelect = (e, car) => {
         e.preventDefault();
         const payload = car === selectedItem ? null : car;
-        setSelectedItem(payload)
+        store.setSelectedItem(payload)
     }
 
     return (

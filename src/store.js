@@ -1,23 +1,29 @@
-import create from 'zustand';
+import { makeAutoObservable } from "mobx";
 
-export const useStore = create(set => ({
-    data: {
+class Store {
+    data = {
         cars: [],
         isLoading: false,
         error: ''
-    },
-    filter: '',
-    selectedItem: null,
-    setData: (data) => set(state => ({
-        ...state,
-        data
-    })),
-    setFilter: (filter) => set(state => ({
-        ...state,
-        filter
-    })),
-    setSelectedItem: (selectedItem) => set(state => ({
-        ...state,
-        selectedItem
-    }))
-}))
+    }
+    filter = ''
+    selectedItem = null
+
+    constructor() {
+        makeAutoObservable(this);
+    }
+
+    setData(data) {
+        this.data = data;
+    }
+    setFilter(filter) {
+        this.filter = filter;
+    }
+    setSelectedItem(selectedItem) {
+        this.selectedItem = selectedItem;
+    }
+}
+
+const store = new Store();
+
+export default store;

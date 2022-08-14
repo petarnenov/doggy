@@ -1,11 +1,11 @@
 import React from "react";
-import { useStore } from "../store";
+import store from "../store";
 
 import CarInfo from "./CarInfo";
 
 const CarSelectedItem = () => {
 
-    const selectedItem = useStore(state => state.selectedItem); 
+    const selectedItem = store.selectedItem;
 
     return selectedItem ?
         <div>

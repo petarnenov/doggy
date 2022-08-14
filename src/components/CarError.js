@@ -1,9 +1,9 @@
 import React from "react";
-import { useStore } from "../store";
+import store from "../store";
 
 const CarError = () => {
 
-    const error = useStore(state => state.data.error);   
+    const error = store.data.error;
 
     return error ? <div>{error}</div> : null
 }

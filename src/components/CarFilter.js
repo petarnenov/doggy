@@ -1,16 +1,13 @@
 import React from "react";
-import { useStore } from "../store";
-
+import store from "../store";
 
 const CarFilter = () => {
 
-    const filter = useStore(state => state.filter);
-    const setFilter = useStore(state => state.setFilter);
+    const filter = store.filter;   
 
     const handleChange = (e) => {
-        e.preventDefault();
-        //setFilter(e.target.value);
-        setFilter(e.target.value);
+        e.preventDefault();        
+        store.setFilter(e.target.value);
     }
 
     return (
