@@ -6,3 +6,15 @@ th{
   text-align: left;
   font-size: x-large;
 }
+
+input {
+  width: 100%;
+  font-size: x-large;
+  padding: 0.2rem;
+}
+
+.app{
+      margin: "auto";
+      width: 800;
+      padding-top: "1rem";    
+}
