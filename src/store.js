@@ -8,18 +8,18 @@ class Store {
     }
     filter = ''
     selectedItem = null
-
     constructor() {
         makeAutoObservable(this);
+
     }
 
-    setData(data) {
+    setData = (data) => {      
         this.data = data;
     }
-    setFilter(filter) {
+    setFilter = (filter) => {
         this.filter = filter;
     }
-    setSelectedItem(selectedItem) {
+    setSelectedItem = (selectedItem) => {
         this.selectedItem = selectedItem;
     }
 }

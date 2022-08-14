@@ -1,5 +1,6 @@
 import React from "react";
 import store from "../store";
+import { observer } from "mobx-react";
 
 const CarError = () => {
 
@@ -8,4 +9,4 @@ const CarError = () => {
     return error ? <div>{error}</div> : null
 }
 
-export default CarError;
+export default observer(CarError);

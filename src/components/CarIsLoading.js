@@ -1,6 +1,7 @@
 import React from "react";
 import { useFetch } from "../hooks/useFetch";
 import store from "../store";
+import { observer } from "mobx-react";
 
 const CarIsLoading = () => {
 
@@ -12,4 +13,4 @@ const CarIsLoading = () => {
 }
 
 
-export default CarIsLoading;
+export default observer(CarIsLoading);

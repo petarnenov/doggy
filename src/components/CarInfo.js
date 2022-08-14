@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { observer } from "mobx-react";
 
 const CarInfo = ({ id, selectedItem }) => (
     <tr>
@@ -16,4 +17,4 @@ CarInfo.propTypes = {
     })
 }
 
-export default CarInfo;
+export default observer(CarInfo);

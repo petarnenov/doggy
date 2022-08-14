@@ -1,5 +1,6 @@
 import React from "react";
 import store from "../store";
+import { observer } from "mobx-react";
 
 import CarInfo from "./CarInfo";
 
@@ -21,4 +22,4 @@ const CarSelectedItem = () => {
         : null
 }
 
-export default CarSelectedItem;
+export default observer(CarSelectedItem);

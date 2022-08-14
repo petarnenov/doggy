@@ -1,5 +1,6 @@
 import React from "react";
 import store from "../store";
+import { observer } from "mobx-react";
 
 const CarFilter = () => {
 
@@ -23,4 +24,4 @@ const CarFilter = () => {
     )
 }
 
-export default CarFilter;
+export default observer(CarFilter);

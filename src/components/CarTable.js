@@ -1,5 +1,6 @@
 import React from "react";
 import store from "../store";
+import { observer } from "mobx-react";
 
 import CarRow from "./CarRow";
 
@@ -34,4 +35,4 @@ const CarTable = () => {
     )
 }
 
-export default CarTable;
+export default observer(CarTable);
