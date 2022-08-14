@@ -4,11 +4,15 @@ import { CarContext } from '../CarProvider';
 
 const CarFilter = () => {
 
-    const { filter, setFilter } = useContext(CarContext);
+    const { state: { filter }, dispatch } = useContext(CarContext);
 
     const handleChange = (e) => {
         e.preventDefault();
-        setFilter(e.target.value);
+        //setFilter(e.target.value);
+        dispatch({
+            type: "SET_FILTER",
+            payload: e.target.value
+        })
     }
 
     return (

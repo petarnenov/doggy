@@ -5,15 +5,15 @@ import CarInfo from "./CarInfo";
 
 const CarSelectedItem = () => {
 
-    const { selectItem } = useContext(CarContext);
+    const { state: { selectedItem } } = useContext(CarContext);
 
-    return selectItem ?
+    return selectedItem ?
         <div>
-            <h2>{selectItem.name}</h2>
+            <h2>{selectedItem.name}</h2>
             <table>
                 <tbody>
-                    {Object.keys(selectItem).map((key, index) => (
-                        <CarInfo id={key} selectItem={selectItem} key={[index, key, selectItem[key]].join(':')} />
+                    {Object.keys(selectedItem).map((key, index) => (
+                        <CarInfo id={key} selectedItem={selectedItem} key={[index, key, selectedItem[key]].join(':')} />
                     ))}
                 </tbody>
             </table>

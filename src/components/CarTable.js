@@ -6,11 +6,12 @@ import CarRow from "./CarRow";
 
 const CarTable = () => {
 
-    const { selectItem, setSelectItem, data, filter } = useContext(CarContext);
+    const { state: { data, filter, selectedItem }, dispatch } = useContext(CarContext);
 
     const handleSelect = (e, car) => {
         e.preventDefault();
-        car === selectItem ? setSelectItem(null) : setSelectItem(car);
+        const payload = car === selectedItem ? null : car;
+        dispatch({ type: "SET_SELECTED_ITEM", payload })
     }
 
     return (

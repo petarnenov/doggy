@@ -4,7 +4,7 @@ import { CarContext } from '../CarProvider';
 
 const CarIsLoading = () => {
 
-    const { data: { isLoading } } = useContext(CarContext);
+    const { state: { data: { isLoading } } } = useContext(CarContext);
 
     return isLoading ? <div>Data loading ...</div> : null;
 }

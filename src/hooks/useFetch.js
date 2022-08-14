@@ -1,44 +1,35 @@
-import { useEffect, useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import { useEffect } from "react";
 
-const initState = {
-    isLoading: false,
-    cars: [],
-    error: null
-}
+export const useFetch = (dispatch) => {   
 
-export const useFetch = () => {
-    const [data, setData] = useState(initState);
-
-    useEffect(() => {
-        setData(prev => ({
-            ...prev,
-            isLoading: true
-        }));
+    useEffect(() => {       
+        dispatch({
+            type: 'SET_DATA',
+            payload: { isLoading: true, cars: [], error: '' }
+        })
         fetch('http://localhost:3000/doggy/cars.json')
-            .then(res => {
-                setData(prev => ({
-                    ...prev,
-                    isLoading: false
-                }))
+            .then(res => {              
+                dispatch({
+                    type: 'SET_DATA',
+                    payload: { isLoading: false, cars: [], error: '' }
+                })
                 if (!res.ok) {
                     throw Error(res.statusText);
                 };
                 return res.json();
             })
-            .then(data => {
-                setData(prev => ({
-                    ...prev,
-                    error: null,
-                    cars: data
-                }));
+            .then(data => {              
+                dispatch({
+                    type: 'SET_DATA',
+                    payload: { error: "", cars: data, isLoading: false }
+                })
             })
-            .catch(e => setData(prev => (
-                {
-                    ...prev,
-                    error: e.message
-                }
-            )));
-    }, []);
-
-    return [data];
+            .catch(e => {               
+                dispatch({
+                    type: 'SET_DATA',
+                    payload: { error: e.message, cars: [], isLoading: false }
+                })
+            });
+    }, [dispatch]);  
 }
