@@ -1,6 +1,4 @@
-import { Provider } from 'react-redux';
-
-import store from "./store";
+import "./store";
 import CarIsLoading from './components/CarIsLoading';
 import CarFilter from './components/CarFilter';
 import CarTable from './components/CarTable';
@@ -10,16 +8,14 @@ import CarError from './components/CarError';
 import './App.css';
 
 function App() {  
-  return (
-    <Provider store={store}>
+  return (  
       <div className='app'>
         <CarIsLoading />
         <CarFilter />
         <CarTable />
         <CarSelectedItem />
         <CarError />
-      </div>
-    </Provider>
+      </div>   
   );
 }
 

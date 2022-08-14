@@ -1,19 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useStore } from "../store";
 
 
 const CarFilter = () => {
 
-    const dispatch = useDispatch();
-    const { filter } = useSelector(state => state);
+    const filter = useStore(state => state.filter);
+    const setFilter = useStore(state => state.setFilter);
 
     const handleChange = (e) => {
         e.preventDefault();
         //setFilter(e.target.value);
-        dispatch({
-            type: "SET_FILTER",
-            payload: e.target.value
-        })
+        setFilter(e.target.value);
     }
 
     return (

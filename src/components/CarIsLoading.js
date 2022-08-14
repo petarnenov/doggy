@@ -1,14 +1,14 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useFetch } from "../hooks/useFetch";
 
+import { useFetch } from "../hooks/useFetch";
+import { useStore } from "../store";
 
 const CarIsLoading = () => {
 
-    const dispatch = useDispatch();
-    useFetch(dispatch);
-
-    const { isLoading } = useSelector(state => state.data);
+    const setData = useStore(state => state.setData);
+    useFetch(setData);
+    
+    const isLoading = useStore(state => state.data.isLoading);
 
     return isLoading ? <div>Data loading ...</div> : null;
 }

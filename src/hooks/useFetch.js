@@ -1,17 +1,15 @@
 import { useEffect } from "react";
 
-export const useFetch = (dispatch) => {
+export const useFetch = (setData) => {
 
     useEffect(() => {
-        dispatch({
-            type: 'SET_DATA',
-            payload: { isLoading: true, cars: [], error: '' }
+        setData({
+            isLoading: true, cars: [], error: ''
         })
         fetch('http://localhost:3000/doggy/cars.json')
             .then(res => {
-                dispatch({
-                    type: 'SET_DATA',
-                    payload: { isLoading: false, cars: [], error: '' }
+                setData({
+                    isLoading: false, cars: [], error: ''
                 })
                 if (!res.ok) {
                     throw Error(res.statusText);
@@ -19,16 +17,14 @@ export const useFetch = (dispatch) => {
                 return res.json();
             })
             .then(data => {
-                dispatch({
-                    type: 'SET_DATA',
-                    payload: { error: "", cars: data, isLoading: false }
+                setData({
+                    error: "", cars: data, isLoading: false
                 })
             })
             .catch(e => {
-                dispatch({
-                    type: 'SET_DATA',
-                    payload: { error: e.message, cars: [], isLoading: false }
+                setData({
+                    error: e.message, cars: [], isLoading: false
                 })
             });
-    }, [dispatch]);
+    }, [setData]);
 }

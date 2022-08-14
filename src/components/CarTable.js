@@ -1,17 +1,20 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useStore } from "../store";
 
 import CarRow from "./CarRow";
 
 const CarTable = () => {
 
-    const dispatch = useDispatch();
-    const { data, filter, selectedItem } = useSelector(state => state);
+    const data = useStore(state => state.data);
+    
+    const filter = useStore(state => state.filter);
+    const selectedItem = useStore(state => state.selectedItem)
+    const setSelectedItem = useStore(state => state.setSelectedItem);
 
     const handleSelect = (e, car) => {
         e.preventDefault();
         const payload = car === selectedItem ? null : car;
-        dispatch({ type: "SET_SELECTED_ITEM", payload })
+        setSelectedItem(payload)
     }
 
     return (

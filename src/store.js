@@ -1,42 +1,23 @@
-import { legacy_createStore } from "redux";
+import create from 'zustand';
 
-const initialState = {
+export const useStore = create(set => ({
     data: {
         cars: [],
         isLoading: false,
         error: ''
     },
     filter: '',
-    selectedItem: null
-}
-
-const carReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case "SET_DATA": {
-            return {
-                ...state,
-                data: action.payload
-            }
-        }
-        case "SET_FILTER": {
-            return {
-                ...state,
-                filter: action.payload
-            }
-        }
-        case "SET_SELECTED_ITEM": {
-            return {
-                ...state,
-                selectedItem: action.payload
-            }
-        }
-        default: {
-            return state;
-        }
-    }
-}
-
-const store = legacy_createStore(carReducer);
-
-export default store;
-
+    selectedItem: null,
+    setData: (data) => set(state => ({
+        ...state,
+        data
+    })),
+    setFilter: (filter) => set(state => ({
+        ...state,
+        filter
+    })),
+    setSelectedItem: (selectedItem) => set(state => ({
+        ...state,
+        selectedItem
+    }))
+}))

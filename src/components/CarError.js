@@ -1,10 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
+import { useStore } from "../store";
 
 const CarError = () => {
 
-    const { error } = useSelector(state => state.data)
+    const error = useStore(state => state.data.error);   
 
     return error ? <div>{error}</div> : null
 }

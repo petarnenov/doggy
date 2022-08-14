@@ -1,11 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useStore } from "../store";
 
 import CarInfo from "./CarInfo";
 
 const CarSelectedItem = () => {
 
-    const { selectedItem } = useSelector(state => state);
+    const selectedItem = useStore(state => state.selectedItem); 
 
     return selectedItem ?
         <div>
