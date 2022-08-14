@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 
+import CarContext from '../CarContext';
+
 const CarFilter = () => {
 
-    const { filter, setFilter } = useContext();
+    const { filter, setFilter } = useContext(CarContext);
 
     const handleChange = (e) => {
         e.preventDefault();

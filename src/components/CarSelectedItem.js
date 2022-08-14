@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 
+import CarContext from '../CarContext';
 import CarInfo from "./CarInfo";
 
 const CarSelectedItem = () => {
 
-    const { selectItem } = useContext();
+    const { selectItem } = useContext(CarContext);
 
     return selectItem ?
         <div>

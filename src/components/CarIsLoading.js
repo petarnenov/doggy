@@ -1,12 +1,13 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React, { useContext } from "react";
 
-const CarIsLoading = ({ data: { isLoading } }) => {
+import CarContext from '../CarContext';
+
+const CarIsLoading = () => {
+
+    const { data: { isLoading } } = useContext(CarContext);
+
     return isLoading ? <div>Data loading ...</div> : null;
 }
 
-CarIsLoading.propTypes = {
-    isLoading: PropTypes.bool
-}
 
 export default CarIsLoading;

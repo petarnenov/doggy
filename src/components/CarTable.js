@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 
+import CarContext from '../CarContext';
+
 import CarRow from "./CarRow";
 
 const CarTable = () => {
 
-    const { selectItem, setSelectItem, data, filter } = useContext();
+    const { selectItem, setSelectItem, data, filter } = useContext(CarContext);
 
     const handleSelect = (e, car) => {
         e.preventDefault();
