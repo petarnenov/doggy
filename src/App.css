@@ -18,3 +18,8 @@ input {
       width: 800;
       padding-top: "1rem";    
 }
+
+button{
+  background-color: lightskyblue;
+  border-radius: 0.5rem;
+}

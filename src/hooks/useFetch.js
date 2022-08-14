@@ -1,15 +1,14 @@
-// eslint-disable-next-line no-unused-vars
 import { useEffect } from "react";
 
-export const useFetch = (dispatch) => {   
+export const useFetch = (dispatch) => {
 
-    useEffect(() => {       
+    useEffect(() => {
         dispatch({
             type: 'SET_DATA',
             payload: { isLoading: true, cars: [], error: '' }
         })
         fetch('http://localhost:3000/doggy/cars.json')
-            .then(res => {              
+            .then(res => {
                 dispatch({
                     type: 'SET_DATA',
                     payload: { isLoading: false, cars: [], error: '' }
@@ -19,17 +18,17 @@ export const useFetch = (dispatch) => {
                 };
                 return res.json();
             })
-            .then(data => {              
+            .then(data => {
                 dispatch({
                     type: 'SET_DATA',
                     payload: { error: "", cars: data, isLoading: false }
                 })
             })
-            .catch(e => {               
+            .catch(e => {
                 dispatch({
                     type: 'SET_DATA',
                     payload: { error: e.message, cars: [], isLoading: false }
                 })
             });
-    }, [dispatch]);  
+    }, [dispatch]);
 }
