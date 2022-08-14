@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
-import { CarContext } from '../CarProvider';
 import CarInfo from "./CarInfo";
 
 const CarSelectedItem = () => {
 
-    const { state: { selectedItem } } = useContext(CarContext);
+    const { selectedItem } = useSelector(state => state);
 
     return selectedItem ?
         <div>

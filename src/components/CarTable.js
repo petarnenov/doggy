@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-
-import { CarContext } from '../CarProvider';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import CarRow from "./CarRow";
 
 const CarTable = () => {
 
-    const { state: { data, filter, selectedItem }, dispatch } = useContext(CarContext);
+    const dispatch = useDispatch();
+    const { data, filter, selectedItem } = useSelector(state => state);
 
     const handleSelect = (e, car) => {
         e.preventDefault();

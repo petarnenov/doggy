@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { CarContext } from '../CarProvider';
 
 const CarFilter = () => {
 
-    const { state: { filter }, dispatch } = useContext(CarContext);
+    const dispatch = useDispatch();
+    const { filter } = useSelector(state => state);
 
     const handleChange = (e) => {
         e.preventDefault();

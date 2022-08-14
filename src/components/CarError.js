@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
-import { CarContext } from '../CarProvider';
 
 const CarError = () => {
 
-    const { state: { data: { error } } } = useContext(CarContext);    
+    const { error } = useSelector(state => state.data)
 
     return error ? <div>{error}</div> : null
 }

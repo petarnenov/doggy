@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useFetch } from "../hooks/useFetch";
 
-import { CarContext } from '../CarProvider';
 
 const CarIsLoading = () => {
 
-    const { state: { data: { isLoading } } } = useContext(CarContext);
+    const dispatch = useDispatch();
+    useFetch(dispatch);
+
+    const { isLoading } = useSelector(state => state.data);
 
     return isLoading ? <div>Data loading ...</div> : null;
 }
