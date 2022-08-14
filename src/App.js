@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import hash from 'object-hash';
 
 import CarIsLoading from './components/CarIsLoading';
 import CarFilter from './components/CarFilter';
