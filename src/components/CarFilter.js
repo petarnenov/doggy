@@ -1,21 +1,25 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 
-const CarFilter = ({ filter, handleChange }) => (
-    <>
-        <h1 className="title">
-            Car Search
-        </h1>
-        <input
-            type="text"
-            value={filter}
-            onChange={handleChange} />
-    </>
-)
+const CarFilter = () => {
 
-CarFilter.propTypes = {
-    filter: PropTypes.string,
-    handleChange: PropTypes.func
+    const { filter, setFilter } = useContext();
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setFilter(e.target.value);
+    }
+
+    return (
+        <>
+            <h1 className="title">
+                Car Search
+            </h1>
+            <input
+                type="text"
+                value={filter}
+                onChange={handleChange} />
+        </>
+    )
 }
 
 export default CarFilter;

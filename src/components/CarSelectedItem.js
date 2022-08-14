@@ -1,9 +1,11 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React, { useContext } from "react";
 
 import CarInfo from "./CarInfo";
 
-const CarSelectedItem = ({selectItem }) => {
+const CarSelectedItem = () => {
+
+    const { selectItem } = useContext();
+
     return selectItem ?
         <div>
             <h2>{selectItem.name}</h2>
@@ -16,13 +18,6 @@ const CarSelectedItem = ({selectItem }) => {
             </table>
         </div>
         : null
-}
-
-CarSelectedItem.propTypes = {
-    selectItem: PropTypes.shape({
-        name: PropTypes.string,
-        type: PropTypes.string
-    })
 }
 
 export default CarSelectedItem;

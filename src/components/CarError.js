@@ -1,12 +1,10 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React, { useContext } from "react";
 
-const CarError = ({ error }) => {
+const CarError = () => {
+
+    const { data: { error } } = useContext();
+
     return error ? <div>{error}</div> : null
-}
-
-CarError.propTypes = {
-    error: PropTypes.string
 }
 
 export default CarError;
