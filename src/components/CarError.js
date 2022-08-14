@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import CarContext from '../CarContext';
+import { CarContext } from '../CarProvider';
 
 const CarError = () => {
 
